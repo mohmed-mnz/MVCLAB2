@@ -1,0 +1,76 @@
+﻿@model List<Instructor>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .img-fluid {
+            width:200px;
+            height:200px;
+        }
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+        a:hover {
+                text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Instructors</h1>
+    <table class="table table-hover  border-dark">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Address</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <th scope="row">@i.Id</th>
+                    <td>@i.Name</td>
+                    <td>@i.Salary</td>
+                    <td>@i.Address</td>
+                    <td><img src="~/images/@i.image" class="img-fluid" /></td>
+                    <td><a href="/instructor/detail/@i.Id">More Details</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
